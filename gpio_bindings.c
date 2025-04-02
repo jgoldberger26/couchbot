@@ -47,7 +47,7 @@ int shutdown() {
     i2cClose(brake_i2c_handle_r);
 }
 
-int set_reverse(bool reverse) {
+int _set_reverse_r(bool reverse) {
     int err = gpioWrite(REVERSE_PIN_R, !reverse) < 0;
     if (err < 0) {
         if (err == PI_BAD_GPIO) {
@@ -60,6 +60,28 @@ int set_reverse(bool reverse) {
         }
     }
     return 0;
+}
+int _set_reverse_l(bool reverse) {
+    int err = gpioWrite(REVERSE_PIN_L, !reverse) < 0;
+    if (err < 0) {
+        if (err == PI_BAD_GPIO) {
+            // Handle error
+            return -1;
+        }
+        else if (err == PI_BAD_LEVEL) {
+            // Handle error
+            return -1;
+        }
+    }
+    return 0;
+}
+
+int setReverse(bool reverse, enum Side side) {
+    if (side == LEFT) {
+        _set_reverse_l(reverse);
+    } if (side == RIGHT) {
+        _set_reverse_r(reverse);
+    }
 }
 
 int _set_speed(enum Speed speed, float hi_speed_pin, float lo_speed_pin) {
