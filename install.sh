@@ -1,0 +1,1 @@
+git clone https://github.com/joan2937/pigpio.git lib
