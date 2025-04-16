@@ -1,9 +1,9 @@
 #include "gpio_bindings.h"
-#include <pigpio.h>
+#include "lib/pigpio/pigpio.h"
 
 #define THROTTLE_PIN_L 6
 #define THROTTLE_PIN_R 6
-#define REVERSE_PIN_L 6
+#define REVERSE_PIN_L 15
 #define REVERSE_PIN_R 6
 #define BRAKE_PIN_L 6
 #define BRAKE_PIN_R 6
@@ -45,6 +45,7 @@ int shutdown() {
     i2cClose(throttle_i2c_handle_r);
     i2cClose(brake_i2c_handle_l);
     i2cClose(brake_i2c_handle_r);
+    return 0;
 }
 
 int _set_reverse_r(bool reverse) {
@@ -179,5 +180,7 @@ int set_throttle(float percent, enum Side side) {
 
 int set_brake_analog(float percent, enum Side side) {
     // Not implemented
-    exit(-1);
+    // exit(-1);
 }
+
+int main() {return 0;}
