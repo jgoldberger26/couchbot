@@ -54,6 +54,7 @@
         "cinttypes": "cpp",
         "typeinfo": "cpp",
         "pigpio.h": "c",
-        "*.gitignore": "c"
+        "*.gitignore": "c",
+        "fstream": "cpp"
     }
 }
