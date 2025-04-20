@@ -3,7 +3,7 @@
 
 #define THROTTLE_PIN_L 6
 #define THROTTLE_PIN_R 6
-#define REVERSE_PIN_L 15
+#define REVERSE_PIN_L 22
 #define REVERSE_PIN_R 6
 #define BRAKE_PIN_L 6
 #define BRAKE_PIN_R 6
@@ -183,4 +183,3 @@ int set_brake_analog(float percent, enum Side side) {
     // exit(-1);
 }
 
-int main() {return 0;}

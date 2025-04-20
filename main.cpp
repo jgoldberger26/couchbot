@@ -4,6 +4,7 @@
 #include "gpio_bindings.h"
 
 void setRevLeft(bool r) {
+    std::cout<< "FIRING " << r << std::endl;
     setReverse(r, LEFT);
 }
 
@@ -13,7 +14,7 @@ int main() {
     InputHub ihub;
     OutputHub ohub;
 
-    ihub.makeReadThread("event3", XBOX);
+    ihub.makeReadThread("event2", XBOX);
 
     ohub.addAction(
         action(
