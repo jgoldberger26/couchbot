@@ -1,17 +1,18 @@
 #include "lib/SIO/inputhub.h"
 #include "lib/SIO/outputhub.h"
 
-#include "gpio_bindings.h"
+// #include "gpio_bindings.h"
 
+#include <gpiod.h>
 #include <fstream>
 
 void setRevLeft(bool r) {
     std::cout<< "FIRING " << r << std::endl;
-    setReverse(r, LEFT);
+    // setReverse(r, LEFT);
 }
 
 int main() {
-    init_pins();
+    // init_pins();
 
     InputHub ihub;
     OutputHub ohub;
