@@ -3,7 +3,6 @@
 
 // #include "gpio_bindings.h"
 
-#include <gpiod.h>
 #include <fstream>
 
 void setRevLeft(bool r) {
@@ -13,6 +12,9 @@ void setRevLeft(bool r) {
 
 int main() {
     // init_pins();
+
+    gpiod_api_version();
+    gpiod_chip_open("gpiochip0");
 
     InputHub ihub;
     OutputHub ohub;

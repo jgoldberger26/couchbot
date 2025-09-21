@@ -55,6 +55,13 @@
         "typeinfo": "cpp",
         "pigpio.h": "c",
         "*.gitignore": "c",
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "internal.h": "c",
+        "bitset": "cpp",
+        "codecvt": "cpp",
+        "cstring": "cpp",
+        "regex": "cpp",
+        "iomanip": "cpp",
+        "sstream": "cpp"
     }
 }

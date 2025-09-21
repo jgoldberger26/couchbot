@@ -1,11 +1,8 @@
 sudo apt-get update
-sudo apt install -y build-essential gcc-arm-linux-gnueabihf
-sudo apt install -y build-essential g++-arm-linux-gnueabihf
+sudo apt install gcc-aarch64-linux-gnu
+sudo apt install g++-aarch64-linux-gnu
 
-# git clone https://github.com/joan2937/pigpio.git lib/pigpio
 git clone https://github.com/brgl/libgpiod.git lib/libgpiod
-
-# make CROSS_PREFIX=arm-linux-gnueabihf- -C lib/pigpio
-# sudo make CROSS_PREFIX=arm-linux-gnueabihf- install -C lib/pigpio
+sh lib/libgpiod/autogen.sh CC=aarch64-linux-gnu-gcc --enable-tools --host=aarch64-linux-gnu
 
 git clone https://github.com/tagciccone/SIO.git lib/SIO
