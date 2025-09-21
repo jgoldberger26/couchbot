@@ -13,9 +13,6 @@ void setRevLeft(bool r) {
 int main() {
     // init_pins();
 
-    gpiod_api_version();
-    gpiod_chip_open("gpiochip0");
-
     InputHub ihub;
     OutputHub ohub;
 
