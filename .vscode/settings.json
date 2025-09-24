@@ -62,6 +62,7 @@
         "cstring": "cpp",
         "regex": "cpp",
         "iomanip": "cpp",
-        "sstream": "cpp"
+        "sstream": "cpp",
+        "gpiod.h": "c"
     }
 }

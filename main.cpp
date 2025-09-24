@@ -3,6 +3,7 @@
 
 // #include "gpio_bindings.h"
 
+#include "lib/libgpiod/include/gpiod.h"
 #include <fstream>
 
 void setRevLeft(bool r) {
