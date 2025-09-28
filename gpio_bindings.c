@@ -1,8 +1,6 @@
 #include "gpio_bindings.h"
-#include "lib/pigpio/pigpio.h"
-
-#include "lib/libgpiod/include/gpiod.h" // TODO transfer all to this
-
+#include <pigpio.h>
+#include <wiringPi.h> //TODO move everything to this!
 
 #define THROTTLE_PIN_L 6
 #define THROTTLE_PIN_R 6
