@@ -63,6 +63,9 @@
         "regex": "cpp",
         "iomanip": "cpp",
         "sstream": "cpp",
-        "gpiod.h": "c"
+        "gpiod.h": "c",
+        "wiringpi.h": "c",
+        "wiringpii2c.h": "c",
+        "unistd.h": "c"
     }
 }

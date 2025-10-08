@@ -1,9 +1,8 @@
 #include "lib/SIO/inputhub.h"
 #include "lib/SIO/outputhub.h"
 
-// #include "gpio_bindings.h"
+#include "gpio_bindings.h"
 
-#include "lib/libgpiod/include/gpiod.h"
 #include <fstream>
 
 void setRevLeft(bool r) {
@@ -12,7 +11,7 @@ void setRevLeft(bool r) {
 }
 
 int main() {
-    // init_pins();
+    init_pins();
 
     InputHub ihub;
     OutputHub ohub;

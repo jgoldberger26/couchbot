@@ -11,10 +11,10 @@ enum Speed {
     HIGH_SPEED
 };
 
-int setReverse(bool reverse, enum Side side);
-int set_throttle(float percent, enum Side side);
-int set_speed(enum Speed speed, enum Side side);
-int set_brake_switch(bool brake, enum Side side);
+void setReverse(bool reverse, enum Side side);
+void set_throttle(float percent, enum Side side);
+void set_speed(enum Speed speed, enum Side side);
+void set_brake_switch(bool brake, enum Side side);
 // int set_brake_analog(float percent, enum Side side);
 
 int init_pins();
