@@ -2,6 +2,7 @@
 #include <wiringPi.h> //TODO move everything to this!
 #include <wiringPiI2C.h>
 #include <unistd.h>
+#include <iostream>
 
 
 #define THROTTLE_PIN_L 6
@@ -33,22 +34,28 @@ int brake_i2c_handle_r;
 
 
 int init_pins() {
+    std::cout << "initing pins" << std:: endl;
     if (wiringPiSetupPinType(WPI_PIN_BCM) < 0) {
         // Failed, return an error
         return -1;
     }
 
-
+    std::cout << "setup pin types" << std:: endl;
 
     pinMode(THROTTLE_PIN_L, OUTPUT);
     // For all pins
 
+    std::cout << "set pin mode" << std:: endl;
 
     throttle_i2c_handle_l = wiringPiI2CSetup(THROTTLE_I2C_ADDR_L);
     throttle_i2c_handle_r = wiringPiI2CSetup(THROTTLE_I2C_ADDR_R);
 
+
     brake_i2c_handle_r = wiringPiI2CSetup(BRAKE_I2C_ADDR_R);
     brake_i2c_handle_l = wiringPiI2CSetup(BRAKE_I2C_ADDR_L);
+
+    std::cout << "I2C setup done" << std:: endl;
+
     return 0;
 }
 
