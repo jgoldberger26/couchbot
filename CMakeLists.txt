@@ -3,7 +3,7 @@ project(Couchbot CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(CouchControl test.cpp)
+add_executable(CouchControl main.cpp)
 
 include(FetchContent)
 
