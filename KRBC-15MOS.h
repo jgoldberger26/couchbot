@@ -1,9 +1,9 @@
 // https://cnkunray.com/products/kunray-krbc-15mos-48v-60v-2000w-33a-brushless-motor-speed-controller-for-electric-bicycle-scooter?VariantsId=10170
 
-// The KRBC-15MOS motor controller
 
 #include "utils.h"
 
+// The KRBC-15MOS motor controller
 class KRBC_15MOS {
     private:
         int throttle_handle;        // The throttle for the controller, W, red/white/black
