@@ -54,7 +54,7 @@
         "cinttypes": "cpp",
         "typeinfo": "cpp",
         "pigpio.h": "c",
-        "*.gitignore": "c",
+        "*.gitignore": "plaintext",
         "fstream": "cpp",
         "internal.h": "c",
         "bitset": "cpp",
@@ -66,6 +66,24 @@
         "gpiod.h": "c",
         "wiringpi.h": "c",
         "wiringpii2c.h": "c",
-        "unistd.h": "c"
+        "unistd.h": "c",
+        "__bit_reference": "cpp",
+        "__config": "cpp",
+        "__hash_table": "cpp",
+        "__locale": "cpp",
+        "__node_handle": "cpp",
+        "__split_buffer": "cpp",
+        "__threading_support": "cpp",
+        "__tree": "cpp",
+        "__verbose_abort": "cpp",
+        "charconv": "cpp",
+        "execution": "cpp",
+        "ios": "cpp",
+        "locale": "cpp",
+        "mutex": "cpp",
+        "optional": "cpp",
+        "variant": "cpp"
     }
+
+
 }

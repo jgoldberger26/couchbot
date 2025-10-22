@@ -1,21 +1,60 @@
 #include "lib/SIO/inputhub.h"
 #include "lib/SIO/outputhub.h"
 
-#include "gpio_bindings.h"
+#include <wiringPi.h> //TODO move everything to this!
+#include <wiringPiI2C.h>
 
 #include <fstream>
 
-void setRevLeft(bool r) {
-    std::cout<< "FIRING " << r << std::endl;
-    // setReverse(r, LEFT);
-}
+#include "KRBC-15MOS.h"
+#include <yaml-cpp/yaml.h>
 
 int main() {
-    init_pins();
+    // Init pin system
+    if (initPins() < 0) { 
+        // Failed, return an error
+        std::cerr << "wiringPi setup failed!" << std::endl;
+        return -1;
+    }
 
+    // Init Motor controllers
+    
+    std::map<std::string, Motor_Config> configs = getConfigs();
+
+    KRBC_15MOS left(configs["Left"]);
+    KRBC_15MOS right(configs["Right"]);
+
+    // Init I/0
     InputHub ihub;
     OutputHub ohub;
 
+    ihub.makeReadThread(getEvent(), XBOX);
+
+    ohub.addAction(
+        action(
+            ihub.getConsumable(1, 304),
+            [&left] (bool b) {left.reverse(b);}
+        )
+    );
+
+    std::cout << "Running..." << std::endl;
+    
+    // Main loop
+    while (true) {
+        ohub.exec();
+    }
+
+    return 0;
+}
+
+int initPins() {
+    if (wiringPiSetupPinType(WPI_PIN_BCM) < 0) { 
+        // Failed, return an error
+        return -1;
+    }
+}
+
+std::string getEvent() {
     std::ifstream f("/proc/bus/input/devices");
 
     std::string line;
@@ -33,20 +72,11 @@ int main() {
 
     f.close();
 
-    ihub.makeReadThread(event, XBOX);
+    return event;
+}
 
-    ohub.addAction(
-        action(
-            ihub.getConsumable(1, 304),
-            setRevLeft
-        )
-    );
+std::map<std::string, Motor_Config> getConfigs() {
+    YAML::Node n = YAML::LoadFile("config.yaml");
 
-    std::cout << "Running..." << std::endl;
-    
-    while (true) {
-        ohub.exec();
-    }
-
-    return 0;
+    return n["MotorControllers"].as<std::map<std::string, Motor_Config> >();
 }

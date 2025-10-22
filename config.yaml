@@ -1,0 +1,7 @@
+MotorControllers:
+  Left:
+    Handles:
+        throttle: 16
+  Right:
+    Handles:
+        throttle: 2
