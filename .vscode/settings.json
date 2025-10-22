@@ -82,7 +82,9 @@
         "locale": "cpp",
         "mutex": "cpp",
         "optional": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "list": "cpp",
+        "forward_list": "cpp"
     }
 
 

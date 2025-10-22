@@ -12,6 +12,7 @@ enum Speed {
 // Config for constructing a motor controller
 struct Motor_Config {
     std::map<std::string, int> handles;
+    std::map<std::string, int> pins;
 };
 
 namespace YAML {
@@ -29,6 +30,7 @@ struct convert<Motor_Config> {
     }
 
     if (node["Handles"]) m.handles = node["Handles"].as<std::map<std::string, int>>();
+    if (node["Pins"]) m.pins =  node["Pins"].as<std::map<std::string, int>>();
 
     return true;
   }
