@@ -1,7 +1,7 @@
 #include "lib/SIO/inputhub.h"
 #include "lib/SIO/outputhub.h"
 
-#include <wiringPi.h> //TODO move everything to this!
+#include <wiringPi.h>
 #include <wiringPiI2C.h>
 
 #include <fstream>
