@@ -27,7 +27,7 @@ class KRBC_15MOS {
             charge_handle = config.handles["charge"];
 
             reverse_pin = config.pins["reverse"];
-            pinMode(reverse_pin, OUTPUT)
+            pinMode(reverse_pin, OUTPUT);
         }
         void reverse(bool reverse);
         void throttle(float percent);

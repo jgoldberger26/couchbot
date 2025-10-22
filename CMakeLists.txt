@@ -14,4 +14,8 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(yaml-cpp)
 
-target_link_libraries(CouchControl PUBLIC yaml-cpp::yaml-cpp) # The library or executable that require yaml-cpp library
+target_link_libraries(
+  CouchControl 
+  PUBLIC yaml-cpp::yaml-cpp
+  PRIVATE wiringPi
+) 
