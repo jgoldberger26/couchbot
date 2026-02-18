@@ -44,7 +44,7 @@ int write_fast_mode(uint8_t handle, uint16_t bytes) {
     // Duplicate the payload as per the datasheet
     uint32_t doubled_bytes = (bytes << 16) | bytes;
     // TODO actually handle errors
-    return wiringPiI2CRawWrite(handle, &doubled_bytes, 4);
+    return wiringPiI2CRawWrite(handle, (uint8_t*)&doubled_bytes, 4);
 }
 
 int write_percent_to_i2c(uint8_t handle, float percent) {
